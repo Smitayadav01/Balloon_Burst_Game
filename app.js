@@ -5,7 +5,6 @@ const clouds = document.querySelectorAll('.cloud');
 
 let balloonCount = 0;
 
-// Function to create a new balloon
 function createBalloon() {
   const balloon = document.createElement('div');
   balloon.className = 'balloon';
@@ -13,24 +12,20 @@ function createBalloon() {
   gameContainer.appendChild(balloon);
   balloonCount++;
 
-  // Position the balloon above the pump
   balloon.style.left = '50%';
   balloon.style.bottom = '100px';
 
-  // Inflate the balloon
   setTimeout(() => {
     balloon.style.width = '120px';
     balloon.style.bottom = '200px';
     moveBalloonRandomly(balloon);
   }, 500);
 
-  // Add click event to burst the balloon
   balloon.addEventListener('click', () => {
     burstBalloon(balloon);
   });
 }
 
-// Function to move the balloon randomly
 function moveBalloonRandomly(balloon) {
   const moveInterval = setInterval(() => {
     if (balloon.parentElement) {
@@ -39,7 +34,6 @@ function moveBalloonRandomly(balloon) {
       balloon.style.left = `${x}px`;
       balloon.style.top = `${y}px`;
 
-      // Check for collision with clouds
       clouds.forEach(cloud => {
         if (checkCollision(balloon, cloud)) {
           burstBalloon(balloon);
@@ -52,7 +46,6 @@ function moveBalloonRandomly(balloon) {
   }, 2000);
 }
 
-// Function to check collision between balloon and cloud
 function checkCollision(balloon, cloud) {
   const balloonRect = balloon.getBoundingClientRect();
   const cloudRect = cloud.getBoundingClientRect();
@@ -65,7 +58,6 @@ function checkCollision(balloon, cloud) {
   );
 }
 
-// Function to burst the balloon
 function burstBalloon(balloon) {
   burstEffect.style.display = 'block';
   burstEffect.style.left = `${balloon.offsetLeft}px`;
@@ -76,7 +68,6 @@ function burstBalloon(balloon) {
   }, 500);
 }
 
-// Pump click event to create a new balloon
 pump.addEventListener('click', () => {
   createBalloon();
 });
