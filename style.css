@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url('assests/Background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .pump {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    height: 100px;
+  }
+  
+  .pump img {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .balloon {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    transition: all 0.5s ease;
+  }
+  
+  .balloon img {
+    width: 100%;
+    height: 120px;
+  }
+  
+  .cloud {
+    position: absolute;
+    width: 150px;
+    opacity: 0.8;
+  }
+  
+  #cloud1 {
+    top: 0%;
+    left: 10%;
+    animation: float 10s infinite linear;
+  }
+  
+  #cloud2 {
+    top: 6%;
+    right: 25%;
+    animation: float 12s infinite linear;
+  }
+  
+  @keyframes float {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .burst-effect {
+    position: absolute;
+    width: 100px;
+    display: none;
+  }
+  
+  .burst-effect img {
+    width: 100%;
+  }
